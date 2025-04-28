@@ -1,7 +1,9 @@
 import { NextResponse } from 'next/server'
-import { PrismaClient } from '@prisma/client'
+// import { PrismaClient } from '@prisma/client'
+import prisma from '../../../../libs/prisma'
 
-const prisma = new PrismaClient()
+
+// const prisma = new PrismaClient()
 
 export async function GET() {
   // Set SSE headers

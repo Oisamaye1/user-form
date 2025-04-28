@@ -1,7 +1,7 @@
 {
-  "/page": "app/page.js",
-  "/api/submissions/route": "app/api/submissions/route.js",
   "/admin/page": "app/admin/page.js",
-  "/api/subscriptions/submissions/route": "app/api/subscriptions/submissions/route.js",
-  "/api/submit/route": "app/api/submit/route.js"
+  "/page": "app/page.js",
+  "/api/submit/route": "app/api/submit/route.js",
+  "/api/submissions/route": "app/api/submissions/route.js",
+  "/api/subscriptions/submissions/route": "app/api/subscriptions/submissions/route.js"
 }

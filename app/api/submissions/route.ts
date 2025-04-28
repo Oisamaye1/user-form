@@ -7,10 +7,12 @@ export async function GET(request: Request) {
   try {
     // Disable caching for this endpoint
     const submissions = await prisma.submission.findMany({
-      orderBy: {
-        createdAt: 'desc'
-      }
+      orderBy: { createdAt: 'desc' }
+    }).catch((error) => {
+      console.error('Prisma query failed', error)
+      throw new Error('Database query failed')
     })
+    
     
     const response = NextResponse.json(submissions)
     // Set headers to prevent caching
