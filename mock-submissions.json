@@ -1,0 +1,20 @@
+[
+  {
+    "id": "example-1",
+    "name": "John Doe",
+    "email": "john@example.com",
+    "phone": "1234567890",
+    "documents": ["/uploads/documents/example-1_document1.pdf"],
+    "images": ["/uploads/images/example-1_image1.jpg"],
+    "createdAt": "2023-11-15T10:00:00.000Z"
+  },
+  {
+    "id": "example-2",
+    "name": "Jane Smith",
+    "email": "jane@example.com",
+    "phone": "0987654321",
+    "documents": ["/uploads/documents/example-2_document1.docx"],
+    "images": ["/uploads/images/example-2_image1.png"],
+    "createdAt": "2023-11-16T11:30:00.000Z"
+  }
+]

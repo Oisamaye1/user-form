@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base styles */
+@layer base {
+  body {
+    @apply antialiased text-gray-800 bg-gray-50;
+  }
+  
+  input, textarea, select {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+  }
+}
+
+/* Custom components */
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-md overflow-hidden;
+  }
+}
