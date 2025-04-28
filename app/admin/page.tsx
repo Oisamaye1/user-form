@@ -39,29 +39,57 @@ export default function AdminDashboard() {
   }, [])
 
   // Initial data fetch
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       setIsLoading(true)
+  //       const res = await fetch('/api/submissions', {
+  //         cache: 'no-store',
+  //         headers: {
+  //           'Cache-Control': 'no-cache'
+  //         }
+  //       })
+  //       if (!res.ok) throw new Error('Failed to fetch')
+  //       const data = await res.json()
+  //       setSubmissions(data)
+  //     } catch (err) {
+  //       setError('Failed to load submissions')
+  //       console.error(err)
+  //     } finally {
+  //       setIsLoading(false)
+  //     }
+  //   }
+
+  //   fetchData()
+  // }, [])
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setIsLoading(true)
         const res = await fetch('/api/submissions', {
           cache: 'no-store',
           headers: {
-            'Cache-Control': 'no-cache'
-          }
-        })
-        if (!res.ok) throw new Error('Failed to fetch')
-        const data = await res.json()
-        setSubmissions(data)
+            'Cache-Control': 'no-cache',
+          },
+        });
+        if (!res.ok) throw new Error('Failed to fetch');
+        const data = await res.json();
+        setSubmissions(data);
       } catch (err) {
-        setError('Failed to load submissions')
-        console.error(err)
-      } finally {
-        setIsLoading(false)
+        setError('Failed to load submissions');
+        console.error(err);
       }
-    }
-
-    fetchData()
-  }, [])
+    };
+  
+    // Fetch immediately
+    fetchData();
+  
+    // Poll every 10 seconds
+    const interval = setInterval(fetchData, 10000); // 10 seconds
+  
+    return () => clearInterval(interval); // Cleanup on unmount
+  }, []);
+  
 
   const filteredSubmissions = submissions.filter(submission => 
     submission.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
